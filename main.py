@@ -1,3 +1,9 @@
+from dotenv import load_dotenv
+
+load_dotenv()
+
+print("main...")
+
 import os
 
 from llama_index import download_loader
@@ -8,10 +14,10 @@ from llama_hub.github_repo import GithubRepositoryReader, GithubClient
 github_client = GithubClient(os.getenv("GITHUB_TOKEN"))
 loader = GithubRepositoryReader(
     github_client,
-    owner =                  "jerryjliu",
-    repo =                   "llama_index",
-    filter_directories =     (["gpt_index", "docs"], GithubRepositoryReader.FilterType.INCLUDE),
-    filter_file_extensions = ([".py"], GithubRepositoryReader.FilterType.INCLUDE),
+    owner =                  "StoryMagic",
+    repo =                   "story-magic-web",
+    filter_directories =     (["pages"], GithubRepositoryReader.FilterType.INCLUDE),
+    filter_file_extensions = ([".ts", ".tsx"], GithubRepositoryReader.FilterType.INCLUDE),
     verbose =                True,
     concurrent_requests =    10,
 )
