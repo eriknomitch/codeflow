@@ -2,11 +2,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-print("main...")
-
 import os
+from pathlib import Path
 
-from llama_index import download_loader
+
+from llama_index import download_loader, VectorStoreIndex, ServiceContext
 download_loader("GithubRepositoryReader")
 
 from llama_hub.github_repo import GithubRepositoryReader, GithubClient
